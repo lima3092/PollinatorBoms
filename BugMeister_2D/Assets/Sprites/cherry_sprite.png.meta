@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: f3589aecc130748728032cbdfd08b233
+timeCreated: 1511443749
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cherry_mutliLeaf
+    21300002: cherry_branch
+    21300004: cherry_leafSgl
+    21300006: cherry_flowerSgl
+    21300008: cherry_flowerDbl
+    21300010: cherry_sprite_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cherry_mutliLeaf
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 678
+        width: 247
+        height: 314
+      alignment: 9
+      pivot: {x: 0.96537125, y: 0.6861384}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cherry_branch
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 35
+        width: 525
+        height: 958
+      alignment: 9
+      pivot: {x: 0.5037108, y: 0.9819782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cherry_leafSgl
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 544
+        width: 248
+        height: 120
+      alignment: 9
+      pivot: {x: 0.012937546, y: 1.0032974}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cherry_flowerSgl
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 326
+        width: 232
+        height: 218
+      alignment: 9
+      pivot: {x: -0.0038578839, y: 0.83066607}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cherry_flowerDbl
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 43
+        width: 258
+        height: 249
+      alignment: 9
+      pivot: {x: -0.005940992, y: 0.9929305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cherry_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 35
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

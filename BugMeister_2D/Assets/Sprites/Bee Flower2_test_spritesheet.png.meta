@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 744899e8466be4d7cbaf0264943e72fc
+timeCreated: 1510073801
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bee Flower2_test_spritesheet_0
+    21300002: Bee Flower2_test_spritesheet_1
+    21300004: Bee Flower2_test_spritesheet_2
+    21300006: Bee Flower2_test_spritesheet_3
+    21300008: Bee Flower2_test_spritesheet_4
+    21300010: Bee Flower2_test_spritesheet_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 603
+        height: 1004
+      alignment: 9
+      pivot: {x: 0.68, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1002
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 629
+        width: 368
+        height: 239
+      alignment: 9
+      pivot: {x: 1, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 374
+        width: 131
+        height: 112
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 375
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bee Flower2_test_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 90
+        width: 64
+        height: 101
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
