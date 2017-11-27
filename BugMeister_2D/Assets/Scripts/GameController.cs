@@ -28,6 +28,22 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
+		// X axis
+		if (transform.position.x <= -4.3f) {
+			transform.position = new Vector2(-4.3f, transform.position.y);
+		} else if (transform.position.x >= 4.3f) {
+			transform.position = new Vector2(4.3f, transform.position.y);
+		}
+
+		// Y axis
+		if (transform.position.y <= -2.7f) {
+			transform.position = new Vector2(transform.position.x, -2.7f);
+		} else if (transform.position.y >= 2.7f) {
+			transform.position = new Vector2(transform.position.x, 2.7f);
+		}
+
+
 		if (gameOver == true && Input.GetKey("up"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -40,5 +56,8 @@ public class GameController : MonoBehaviour {
     {
         gameOverText.SetActive(true);
         gameOver = true;
+		//Application.LoadLevel("Bombus_startPage");
     }
 }
+
+

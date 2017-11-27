@@ -48,7 +48,21 @@ public class BeeController : MonoBehaviour {
         else
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-        }   
+        }  
+
+		// X axis
+		if (transform.position.x <= -9f) {
+			transform.position = new Vector2(-9f, transform.position.y);
+		} else if (transform.position.x >= 9f) {
+			transform.position = new Vector2(9f, transform.position.y);
+		}
+
+		// Y axis
+		if (transform.position.y <= -5f) {
+			transform.position = new Vector2(transform.position.x, -5f);
+		} else if (transform.position.y >= 5f) {
+			transform.position = new Vector2(transform.position.x, 5f);
+		}
          
 	}
 

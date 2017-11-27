@@ -57,10 +57,13 @@
      <Compile Include="Assets\Scripts\FlowerController.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\pollenCollider.cs" />
      <Compile Include="Assets\Scripts\RepeatingBackgroundBee.cs" />
      <Compile Include="Assets\Scripts\ScrollingObject.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\TimeController.cs" />
      <Compile Include="Assets\Scripts\WaterController.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
