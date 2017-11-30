@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FEF3C77B-BF34-E9FC-205A-61717E373E2A}</ProjectGuid>
+    <ProjectGuid>{3688D886-19E0-B3B9-6640-22B3519E22B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BuzzAudio.cs" />
+     <Compile Include="Assets\GameOverManager.cs" />
+     <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
      <Compile Include="Assets\Scripts\BeeController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
@@ -107,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{791564F9-7629-4D00-0C46-716BA79C0BF0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{9349AE9D-B1A2-1483-2450-13CA519C4A57}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

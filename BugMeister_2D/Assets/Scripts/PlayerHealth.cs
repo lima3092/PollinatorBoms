@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerHealth : MonoBehaviour
 {	
@@ -11,28 +12,34 @@ public class PlayerHealth : MonoBehaviour
 	public Slider healthSlider;					 // Reference to the UI's health bar.
 	public Image damageImage;					 // Reference to an image to flash on the screen on being hurt.
 	public AudioClip deathClip;                     // The audio clip to play when the player dies.
+	public AudioClip hurtClip; 						 // The audio clip to play when the player is hurt.
 	public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
-	public float damageAmount = 10f;			// The amount of damage to take when enemies touch the player
+	public float damageAmount = 10f;						// The amount of damage to take when enemies touch the player
+						
 
-	//private SpriteRenderer healthBar;			// Reference to the sprite renderer of the health bar.
+	private SpriteRenderer healthBar;			// Reference to the sprite renderer of the health bar.
 	private float lastHitTime;					// The time at which the player was last hit.
-	//private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
+	private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
 	private BeeController beeController;		// Reference to the PlayerControl script.
+
 	private Animator anim;						// Reference to the Animator on the player
     //private WaterController water;
 
 	AudioSource playerAudio;                                    // Reference to the AudioSource component.
 
-	bool isDead;                                                // Whether the player is dead.
+	public bool isDead;                                                // Whether the player is dead.
 	bool damaged;                                               // True when the player gets damaged.
+
+
 
 
 	void Awake ()
 	{
 		// Setting up references.
 		beeController = GetComponent<BeeController>();
+
 		//healthBar = GameObject.Find("HealthBar").GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
         //water = GetComponent<WaterController>();
@@ -50,6 +57,9 @@ public class PlayerHealth : MonoBehaviour
 		{
 			// ... set the colour of the damageImage to the flash colour.
 			damageImage.color = flashColour;
+//			// Play the hurt sound effect.
+//			playerAudio.clip = hurtClip;
+//					playerAudio.Play ();
 		}
 		// Otherwise...
 		else
@@ -62,10 +72,19 @@ public class PlayerHealth : MonoBehaviour
 		damaged = false;
 	}
 
+	//void onCollisionAction () {
+		//put all duplicate code here
+	//}
+
 
 	//Lina's code for taking damage
 	void OnCollisionEnter2D (Collision2D col)
 	{
+
+		//print ("hallo");
+
+		//onCollisionAction ();
+
 		// If the colliding gameobject is an Enemy...
 		if(col.gameObject.tag == "airplane")
 		{
@@ -76,65 +95,85 @@ public class PlayerHealth : MonoBehaviour
 				if(health > 0f)
 				{
 					// ... take damage and reset the lastHitTime.
-					TakeDamage(col.transform); 
+					TakeDamage(); 
 					lastHitTime = Time.time; 
-				}
-				// If the player doesn't have health, do some stuff, let him fall into the river to reload the level.
-				else
-				{
+					// Play the hurt sound effect.
+					playerAudio.clip = hurtClip;
+					playerAudio.Play ();
 
-					// ... disable user Player Control script
-					GetComponent<BeeController>().enabled = false;
-					//GameController.instance.BeeDied();
-					anim.SetTrigger("Died");
 				}
+
+				//Jemmas Note... this else script doesn't work amd seems to screw everything up.
+				// If the player doesn't have health, do some stuff, let him fall into the river to reload the level.
+//				else
+//				{
+//
+//					// ... disable user Player Control script
+//					GetComponent<BeeController>().enabled = false;
+//					//GameController.instance.BeeDied();
+//					anim.SetTrigger("IsDead");
+//
+//					// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
+//					playerAudio.clip = deathClip;
+//					playerAudio.Play ();
+//				}
 			}
 		}
 	}
 
+	void OnParticleCollision(GameObject other) {
+
+		//print ("ParticleCollision");
+
+//		if (!isDead) {
+			TakeDamage ();
+//		}
+
+		Rigidbody body = other.GetComponent<Rigidbody>();
+		if (body) {
+			Vector3 direction = other.transform.position - transform.position;
+			direction = direction.normalized;
+			body.AddForce(direction * 5);
+		}
+
+	}
+
 	//also Lina's code for taking damage
-	void TakeDamage (Transform enemy)
+	void TakeDamage ()
 	{
 		damaged = true;
-		// Reduce the player's health by 10.
-		health -= damageAmount;
+		 //Reduce the player's health by 10.
+		//health -= damageAmount;
+		currentHealth -= damageAmount;
+		print (currentHealth);
+		healthSlider.value = currentHealth;
+
+		if(currentHealth <= 0 && !isDead)
+		{
+			// ... it should die.
+			Death ();
+			GameController.instance.BeeDied();
+//			if (isDead == true && Input.GetKey ("a")) {
+//
+//				Application.LoadLevel ("Bombus_startPage");
+//			
+//			}
+		}
 
 		// Update what the health bar looks like.
 		//UpdateHealthBar();
-
+//
 	}
-//	public void TakeDamage (int amount)
-//	{
-//		// Set the damaged flag so the screen will flash.
-//		damaged = true;
-//
-//		// Reduce the current health by the damage amount.
-//		currentHealth -= amount;
-//
-//		// Set the health bar's value to the current health.
-//		healthSlider.value = currentHealth;
-//
-//		// Play the hurt sound effect.
-//		playerAudio.Play ();
-//
-//		// If the player has lost all it's health and the death flag hasn't been set yet...
-//		if(currentHealth <= 0 && !isDead)
-//		{
-//			// ... it should die.
-//			Death ();
-//		}
-//	}
+
 
 	void Death ()
 	{
 		// Set the death flag so this function won't be called again.
 		isDead = true;
 
-		// Turn off any remaining shooting effects.
-		//playerShooting.DisableEffects ();
 
 		// Tell the animator that the player is dead.
-		anim.SetTrigger ("died");
+		anim.SetTrigger ("IsDead");
 
 		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
 		playerAudio.clip = deathClip;
@@ -142,8 +181,12 @@ public class PlayerHealth : MonoBehaviour
 
 		// Turn off the movement and shooting scripts.
 		//BeeController.enabled = false;
+		GetComponent<BeeController>().enabled = false;
+
+
 		//playerShooting.enabled = false;
 	}
+
 
 	//also LIna code for health bar.
 //	public void UpdateHealthBar ()

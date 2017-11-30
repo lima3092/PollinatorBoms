@@ -5,10 +5,18 @@ using UnityEngine.UI;
 public class TimeController : MonoBehaviour {
     public float startTime;
     private Text timeText;
+	//private BeeController beeController;
+
 	// Use this for initialization
+
+	void Awake () {
+		//beeController = GetComponent<BeeController>();
+	}
 	void Start ()
     {
-        timeText = GetComponent<Text>();	
+        timeText = GetComponent<Text>();
+		// Setting up references.
+
 	}
 	
 	// Update is called once per frame
@@ -22,8 +30,12 @@ public class TimeController : MonoBehaviour {
             startTime = 0f;
             timeText.text = "Time 00:" + startTime;
             GameController.instance.BeeDied();
+			//TimeOut ();
+			//GetComponent<BeeController>().enabled = false;
             
         }
 
     }
+
+
 }

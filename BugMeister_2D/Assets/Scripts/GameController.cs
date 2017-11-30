@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
@@ -8,6 +9,16 @@ public class GameController : MonoBehaviour {
     public float scrollSpeed = -1.5f;
     public bool gameOver = false;
     public GameObject gameOverText;
+	public GameObject buzzAudio;
+
+
+	public bool isDead;
+
+	private PlayerHealth playerHealth;
+	//private BeeController beeController;
+	//private BackgroundPropSpawner backgroundPropSpawner;
+
+
 
 
 
@@ -23,6 +34,9 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+		playerHealth = GetComponent<PlayerHealth>();
+		//backgroundPropSpawner = GetComponent <BackgroundPropSpawner>() ;
+		//GetComponent<BeeController>().enabled = false;
     }
 	
 	// Update is called once per frame
@@ -43,21 +57,35 @@ public class GameController : MonoBehaviour {
 			transform.position = new Vector2(transform.position.x, 2.7f);
 		}
 
+		//blanking this out to test if the GameOverManager script can do this instead
+//		if (gameOver == true) /*&& Input.GetKey("up")*/       {
+		if (gameOver == true && Input.GetKey ("s") || Input.GetKey ("S")) {
 
-		if (gameOver == true && Input.GetKey("up"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+			Application.LoadLevel ("Bombus_startPage");
+			gameOver = false;
+		}
+//			Buzz.Stop() //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       }
 
 
-	}
+
 
     public void BeeDied ()
-    {
-        gameOverText.SetActive(true);
-        gameOver = true;
-		//Application.LoadLevel("Bombus_startPage");
-    }
+    { 
+		//if (isDead = true) {
+	
+			gameOverText.SetActive (true);
+			gameOver = true;
+			buzzAudio.SetActive (false);
+
+		//GetComponent<BeeController>().enabled = false;
+
+	
+
+
+		}
+		//}
+    
 }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BeeController : MonoBehaviour {
 
@@ -9,14 +10,41 @@ public class BeeController : MonoBehaviour {
     private Rigidbody2D rb2d;
     private bool isDead = false;
     private bool landed = false;
+
+	public Text winText;
+	public Text countText;
+
+	public AudioClip pointsClip; 
+
     public Transform groundCheckPoint;
     private Animator anim;
+
+	private int count;
+
+	public float startTime;
+
+	public GameObject fruit;
+	public GameObject plane;
+	public bool youWin = false;
+	//private TimeController timeController;
+
+	AudioSource playerAudio;  
+
+
+ 
 
 	// Use this for initialization
 	void Start ()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+		playerAudio = GetComponent <AudioSource> ();
+		count = 0;
+		SetCountText ();
+		winText.text = "";
+		//timeController = GetComponent<TimeController>();
+
+	
 	}
 	
 	// Update is called once per frame
@@ -63,6 +91,8 @@ public class BeeController : MonoBehaviour {
 		} else if (transform.position.y >= 5f) {
 			transform.position = new Vector2(transform.position.x, 5f);
 		}
+	
+
          
 	}
 
@@ -70,6 +100,59 @@ public class BeeController : MonoBehaviour {
     {
         rb2d.freezeRotation = true;
         
-        //GameController.instance.BeeDied();
+        
     }
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag ("pollen"))
+		{
+			other.gameObject.SetActive (false);
+			count = count + 1;
+			SetCountText ();
+			playerAudio.clip = pointsClip;
+			playerAudio.Play ();
+
+		}
+	}
+
+	void SetCountText ()
+	{
+		//countText.text = "Count: " + count.ToString ();
+		if (count >= 9)
+		{
+			winText.text = "You Win!";
+			youWin = true;
+			GetComponent<BeeController>().enabled = false;
+			plane.SetActive (false);
+			fruit.SetActive(true);
+
+			OnWin ();
+//			if (youWin == true && Input.GetKey ("a") || Input.GetKey ("A")) {
+//
+//				Application.LoadLevel ("Bombus_startPage");
+//			}
+//
+//			if (youWin == true && Mathf.Round (startTime) > 0) {
+//
+//				GetComponent<TimeController>().enabled = false;
+//			}
+
+		}
+	}
+
+	public void  OnWin(){
+		
+		if (youWin == true) {
+			StartCoroutine ("Wait");
+		}
+	}
+
+	IEnumerator Wait()
+	{
+		print ("wait enabled");
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel("Bombus_startPage");
+	}
+
 }
