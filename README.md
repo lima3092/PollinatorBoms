@@ -4,3 +4,9 @@ The game BOMBUS addresses the dramatic decline of our insect population in recen
 
 Using "gamification" and "storytelling," BOMBUS aims to raise awareness about this problem. In the game, users become bumblebees themselves and take on pollination tasks: They have to carry pollen from one flower to the next, avoiding natural and man-made obstacles.
 
+This game was created for [Coding Da Vinci hackathon 2017.](https://codingdavinci.de/projects/2017/bombus.html#project-name)
+
+Demo:
+
+[![](images/bombus.png)](https://vimeo.com/244618045/518be1d17e)
+
